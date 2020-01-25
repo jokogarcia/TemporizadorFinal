@@ -15,7 +15,7 @@ namespace TemporizadorFinal.ViewModels
 #endregion
         public DelegateCommand<string> NavigateCommand {
             get => _navigateCommand ?? (_navigateCommand = new DelegateCommand<string>(async (string page) => {
-                await _navigationService.NavigateAsync("/PrismMasterDetaliPage1/NavigationPage/"+page);
+                await _navigationService.NavigateAsync("/PrismMasterDetailPage1/NavigationPage/"+page);
             })); }
         public PrismMasterDetailPage1ViewModel(INavigationService navigationService)
         {

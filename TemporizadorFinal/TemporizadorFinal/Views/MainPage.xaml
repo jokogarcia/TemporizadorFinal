@@ -4,12 +4,44 @@
              x:Class="TemporizadorFinal.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="{Binding CurrentTimerDisplay}" HorizontalOptions="Center" FontSize="Large" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+        <Label Text="{Binding IterationsDisplay}" HorizontalOptions="Center" FontSize="Medium"  TextColor="Green" Margin="35"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="120"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding CurrentTimer.Minutes, StringFormat='{0:00}'}" HorizontalOptions="End" FontSize="Large" 
+                   Grid.Row="1" Grid.Column="0"/>
+            <Label Text="{Binding CurrentTimer.Seconds, StringFormat='{0:00}'}" HorizontalOptions="Center" FontSize="Large" 
+                   Grid.Row="1" Grid.Column="2"/>
+            <Label Text="{Binding CurrentTimer.Milliseconds, StringFormat='{0:000}'}" HorizontalOptions="Start" FontSize="Large" 
+                   Grid.Row="1" Grid.Column="4"/>
+            <Label Text="Minutos" HorizontalOptions="End" FontSize="Micro" VerticalOptions="End"
+                   Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Segundos" HorizontalOptions="Center" FontSize="Micro"  VerticalOptions="End"
+                   Grid.Row="0" Grid.Column="2"/>
+            <Label Text="Milisegundos" HorizontalOptions="Start" FontSize="Micro"  VerticalOptions="End"
+                   Grid.Row="0" Grid.Column="4"/>
+            <Label Text=":" HorizontalOptions="Center" FontSize="Large" 
+                   Grid.Row="1" Grid.Column="1"/>
+            <Label Text=":" HorizontalOptions="Center" FontSize="Large" 
+                   Grid.Row="1" Grid.Column="3"/>
+            
+        </Grid>
+        
         <Label Text="{Binding IterationDisplay}" HorizontalOptions="Center" FontSize="Medium" />
-        <StackLayout Orientation="Horizontal">
-            <Button Text="{Binding ButtonText}" Command="{Binding StartStopCommand}"/>
-            <Button Text="Reset" Command="{Binding ResetCommand}"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="{Binding ButtonText}" Command="{Binding StartStopCommand}" Margin="25,0"/>
+            <Button Text="Reset" Command="{Binding ResetCommand}" Margin="25,0"/>
         </StackLayout>
         
     </StackLayout>

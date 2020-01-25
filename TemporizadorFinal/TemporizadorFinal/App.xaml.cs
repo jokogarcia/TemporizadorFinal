@@ -23,7 +23,7 @@ namespace TemporizadorFinal
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("/PrismMasterDetailPage1/NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,6 +31,7 @@ namespace TemporizadorFinal
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<PrismMasterDetailPage1, PrismMasterDetailPage1ViewModel>();
+            containerRegistry.RegisterForNavigation<ConfigurationPage, ConfigurationPageViewModel>();
         }
     }
 }

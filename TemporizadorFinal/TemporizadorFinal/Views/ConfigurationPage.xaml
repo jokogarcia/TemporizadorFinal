@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TemporizadorFinal.Views.ConfigurationPage">
+    <ScrollView>
+        <StackLayout>
+
+            <Label Text="Cantidad de postas" FontSize="Small" TextColor="Accent"/>
+            <Entry Keyboard="Numeric" Visual="Material" Text="{Binding Configuration.NumberOfIntervals}"
+                Grid.Row="0" Grid.Column="2" />
+            <Label Text="Duración de examen" TextColor="Accent" FontSize="Small"/>
+            <Grid HorizontalOptions="CenterAndExpand" Margin="0,25,0,55" BackgroundColor="LightGray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Minutos" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"></Label>
+                <Label Text="Segundos" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2"></Label>
+                <Entry Text="{Binding ExamMinutes}" Keyboard="Numeric" FontSize="Large" HorizontalTextAlignment="End" Grid.Row="1" Grid.Column="0"/>
+                <Label Text=":" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0"/>
+                <Entry Text="{Binding ExamSeconds}" Keyboard="Numeric" FontSize="Large" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="2"/>
+            </Grid>
+            <Label Text="Duración de pausa" TextColor="Accent" FontSize="Small"/>
+            <Grid HorizontalOptions="CenterAndExpand" Margin="0,25,0,55" BackgroundColor="LightGray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Minutos" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"></Label>
+                <Label Text="Segundos" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2"></Label>
+                <Entry Text="{Binding PauseMinutes}" Keyboard="Numeric" FontSize="Large" HorizontalTextAlignment="End" Grid.Row="1" Grid.Column="0"/>
+                <Label Text=":" FontSize="Large" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0"/>
+                <Entry Text="{Binding PauseSeconds}" Keyboard="Numeric" FontSize="Large" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="2"/>
+            </Grid>
+            <Button Text="Aceptar" Command="{Binding AcceptCommand}"/>
+            <Button Text="Cancelar" Command="{Binding CancelCommand}"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
