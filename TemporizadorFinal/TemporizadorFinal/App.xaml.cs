@@ -32,6 +32,7 @@ namespace TemporizadorFinal
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<PrismMasterDetailPage1, PrismMasterDetailPage1ViewModel>();
             containerRegistry.RegisterForNavigation<ConfigurationPage, ConfigurationPageViewModel>();
+            containerRegistry.RegisterForNavigation<BluetoothTestPage, BluetoothTestPageViewModel>();
         }
     }
 }

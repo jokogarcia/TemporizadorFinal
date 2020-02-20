@@ -11,6 +11,7 @@
                 <!-- TODO: // Update the Layout and add some real menu items  -->
                 <Button Text="Reloj" Command="{Binding NavigateCommand}" CommandParameter="MainPage" />
                 <Button Text="Configuración" Command="{Binding NavigateCommand}" CommandParameter="ConfigurationPage" />
+                <Button Text="BT Test" Command="{Binding NavigateCommand}" CommandParameter="BluetoothTestPage" />
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

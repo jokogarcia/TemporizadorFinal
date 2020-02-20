@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 using TemporizadorFinal.Models;
+using TemporizadorFinal.Services;
 using Xamarin.Essentials;
 
 namespace TemporizadorFinal.ViewModels
@@ -37,6 +38,8 @@ namespace TemporizadorFinal.ViewModels
 
 
         ISimpleAudioPlayer AudioPlayer;
+        private IHC05Driver _hC05Driver;
+
         public DelegateCommand StartStopCommand { get => _startStopCommand ?? (_startStopCommand = new DelegateCommand(StartStopCommand_Execute)); }
 
        
@@ -44,7 +47,7 @@ namespace TemporizadorFinal.ViewModels
 
        
 
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService, IHC05Driver hC05Driver)
             : base(navigationService)
         {
             Title = "Temporizador";
@@ -53,6 +56,8 @@ namespace TemporizadorFinal.ViewModels
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             AudioPlayer =CrossSimpleAudioPlayer.Current;
+            _hC05Driver = hC05Driver;
+            _hC05Driver.Initialize("HC-05");
 
 
         }
@@ -97,6 +102,8 @@ namespace TemporizadorFinal.ViewModels
             if (CurrentTimer.TotalMilliseconds <= 0)
             {
                 FireSound();
+                _hC05Driver.Tx.WriteLine("StreamReader defaults to UTF-8 encoding unless specified otherwise, instead of defaulting to the ANSI code page for the current system. UTF-8 handles Unicode characters correctly and provides consistent results on localized versions of the operating system. If you get the current character encoding using the CurrentEncoding property, the value is not reliable until after the first Read method, since encoding auto detection is not done until the first call to a Read method.");
+                var rx = _hC05Driver.Rx.ReadLine();
                 isExam = !isExam;
 
                 if (isExam)
